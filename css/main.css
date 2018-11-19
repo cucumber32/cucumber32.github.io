@@ -1844,7 +1844,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #860dd4;
+  background: #49c7ff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2722,10 +2722,32 @@ embed {
 .header {
   background: url("/images/header-bk.jpg");
 }
-侧栏按钮样式,
+.brand {
+  padding: 10px 40px;
+  background: #446e5c;
+  border-radius: 35px;
+}
+a {
+  color: #446e5c;
+}
+.btn {
+  background: #446e5c;
+  border: 2px solid #446e5c;
+}
 .sidebar-toggle {
-  background: #74b49b;
+  background: #446e5c;
 }
 .back-to-top {
-  background: #74b49b;
+  background: #446e5c;
+}
+.sidebar {
+  background: #546e5c;
+  box-shadow: inset 0 2px 6px #fff;
+}
+.site-author-image {
+  border: 2px solid #555;
+}
+.site-author-name {
+  fontfamily: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 1.8em;
 }
