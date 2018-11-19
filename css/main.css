@@ -1844,7 +1844,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #14afff;
+  background: #d14a53;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2767,5 +2767,12 @@ a {
   border-bottom-color: #fb7777;
 }
 .sidebar-nav .sidebar-nav-active:hover {
+  color: #fb7777;
+}
+.feed-link a {
+  color: #fb7777;
+  border: 1px solid #fb7777;
+}
+.feed-link a:hover {
   color: #fb7777;
 }
