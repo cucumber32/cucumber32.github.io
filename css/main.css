@@ -1844,7 +1844,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ff98a7;
+  background: #860dd4;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2721,4 +2721,11 @@ embed {
 }
 .header {
   background: url("/images/header-bk.jpg");
+}
+侧栏按钮样式,
+.sidebar-toggle {
+  background: #74b49b;
+}
+.back-to-top {
+  background: #74b49b;
 }
