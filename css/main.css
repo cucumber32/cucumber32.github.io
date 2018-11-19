@@ -1844,7 +1844,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #11f9ff;
+  background: #54bac3;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2743,10 +2743,11 @@ a {
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
-  backgound: #d1f6c1;
+  background: #d1f6c1;
 }
 .posts-expand .post-tags a:hover {
   background: #fd7777;
+  color: #fff;
 }
 .sidebar-toggle {
   background: #446e5c;
