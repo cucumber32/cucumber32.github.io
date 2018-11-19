@@ -1844,7 +1844,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #6b5bff;
+  background: #b04250;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2739,9 +2739,9 @@ h3,
 h4,
 h5,
 h6 {
-  border-left: 4px solid #a166ab;
-  margin-left: -36px;
-  padding-left: 32px;
+  border-left: 4px solid #446e5c;
+  margin-left: -26px;
+  padding-left: 28px;
 }
 .posts-expand .post-body img {
   border: none;
@@ -2862,12 +2862,12 @@ blockquote.question {
   height: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #446e5c;
+  background: #fff;
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background-color: #d1f6c1;
+  background-color: #74b49b;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #fb7777;
+  background-color: #63cdaa;
 }
