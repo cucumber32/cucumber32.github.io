@@ -303,6 +303,185 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/26/vue项目的坑-`error-4048`/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="黄瓜">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="好高兴啊又吃成长快乐了">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/26/vue项目的坑-`error-4048`/" itemprop="url">vue项目的坑-`error-4048`</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-26T00:00:00+08:00">
+                2019-03-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/26/vue项目的坑-`error-4048`/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/03/26/vue项目的坑-`error-4048`/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/03/26/vue项目的坑-`error-4048`/" class="leancloud_visitors" data-flag-title="vue项目的坑-`error-4048`">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  302
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="刚开始踩的坑"><a href="#刚开始踩的坑" class="headerlink" title="刚开始踩的坑"></a>刚开始踩的坑</h2><p>打开vue项目后快乐<code>npm install</code>，然后一堆报错，内容如图：</p>
+<p>查了很久不知道这个神秘的<code>errno:-4048</code>是个什么，google告诉我的方法基本没有用，有梦想的同学可以试试：</p>
+<p>这是overflow上的回答：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean</span><br><span class="line">npm cache clean --force</span><br></pre></td></tr></table></figure>
+<p>其他的回答：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm cache verify #校验缓存依赖</span><br></pre></td></tr></table></figure>
+<p>包括我问的朋友猜测的可能：</p>
+<ol>
+<li>npm版本过高，与项目不兼容，我重新安装了整个node，没有用；</li>
+<li>磁盘权限不足（当时那个项目所在的文件是只读权限），改了也没有用；</li>
+</ol>
+<p>通过同事的验证得出了结果，是项目的配置文件出错，是的：</p>
+<p><code>package-lock.json</code></p>
+<p>就是他！罪魁祸首。我删掉这个文件直接重下依赖：<code>npm install</code>就没有问题了。</p>
+<p>可以成功运行项目。</p>
+<p>验证的过程是：</p>
+<p>在其他路径下创建一个新的vue项目，进行相同的依赖安装（比如某某ui包），可以并多次可以成功安装；（由于同是在只读文件夹下创建，排除了磁盘权限问题）</p>
+<p>参考： </p>
+<p><a href="https://www.jianshu.com/p/3d209a682d7d" target="_blank" rel="noopener">npm安装依赖errno -4048报错</a></p>
+<p><a href="https://stackoverflow.com/questions/30860795/fail-to-install-npm-package-npm-err-errno-4048" target="_blank" rel="noopener">oveflow上的问题</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/16/不优雅的windows10/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -668,7 +847,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -681,7 +860,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -742,7 +921,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

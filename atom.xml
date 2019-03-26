@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-19T07:27:06.178Z</updated>
+  <updated>2019-03-26T13:53:47.764Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vue项目的坑-`error-4048`</title>
+    <link href="http://yoursite.com/2019/03/26/vue%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%9D%91-%60error-4048%60/"/>
+    <id>http://yoursite.com/2019/03/26/vue项目的坑-`error-4048`/</id>
+    <published>2019-03-25T16:00:00.000Z</published>
+    <updated>2019-03-26T13:53:47.764Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="刚开始踩的坑"><a href="#刚开始踩的坑" class="headerlink" title="刚开始踩的坑"></a>刚开始踩的坑</h2><p>打开vue项目后快乐<code>npm install</code>，然后一堆报错，内容如图：</p><p>查了很久不知道这个神秘的<code>errno:-4048</code>是个什么，google告诉我的方法基本没有用，有梦想的同学可以试试：</p><p>这是overflow上的回答：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean</span><br><span class="line">npm cache clean --force</span><br></pre></td></tr></table></figure><p>其他的回答：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm cache verify #校验缓存依赖</span><br></pre></td></tr></table></figure><p>包括我问的朋友猜测的可能：</p><ol><li>npm版本过高，与项目不兼容，我重新安装了整个node，没有用；</li><li>磁盘权限不足（当时那个项目所在的文件是只读权限），改了也没有用；</li></ol><p>通过同事的验证得出了结果，是项目的配置文件出错，是的：</p><p><code>package-lock.json</code></p><p>就是他！罪魁祸首。我删掉这个文件直接重下依赖：<code>npm install</code>就没有问题了。</p><p>可以成功运行项目。</p><p>验证的过程是：</p><p>在其他路径下创建一个新的vue项目，进行相同的依赖安装（比如某某ui包），可以并多次可以成功安装；（由于同是在只读文件夹下创建，排除了磁盘权限问题）</p><p>参考： </p><p><a href="https://www.jianshu.com/p/3d209a682d7d" target="_blank" rel="noopener">npm安装依赖errno -4048报错</a></p><p><a href="https://stackoverflow.com/questions/30860795/fail-to-install-npm-package-npm-err-errno-4048" target="_blank" rel="noopener">oveflow上的问题</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;刚开始踩的坑&quot;&gt;&lt;a href=&quot;#刚开始踩的坑&quot; class=&quot;headerlink&quot; title=&quot;刚开始踩的坑&quot;&gt;&lt;/a&gt;刚开始踩的坑&lt;/h2&gt;&lt;p&gt;打开vue项目后快乐&lt;code&gt;npm install&lt;/code&gt;，然后一堆报错，内容如图：&lt;/p&gt;
+&lt;p
+      
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+      <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
+    
+  </entry>
   
   <entry>
     <title>不优雅的windows10</title>
