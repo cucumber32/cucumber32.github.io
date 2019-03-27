@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-26T13:53:47.764Z</updated>
+  <updated>2019-03-27T15:05:58.468Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="http://yoursite.com/2019/03/26/vue%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%9D%91-%60error-4048%60/"/>
     <id>http://yoursite.com/2019/03/26/vue项目的坑-`error-4048`/</id>
     <published>2019-03-25T16:00:00.000Z</published>
-    <updated>2019-03-26T13:53:47.764Z</updated>
+    <updated>2019-03-27T15:05:58.468Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="刚开始踩的坑"><a href="#刚开始踩的坑" class="headerlink" title="刚开始踩的坑"></a>刚开始踩的坑</h2><p>打开vue项目后快乐<code>npm install</code>，然后一堆报错，内容如图：</p><p>查了很久不知道这个神秘的<code>errno:-4048</code>是个什么，google告诉我的方法基本没有用，有梦想的同学可以试试：</p><p>这是overflow上的回答：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean</span><br><span class="line">npm cache clean --force</span><br></pre></td></tr></table></figure><p>其他的回答：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm cache verify #校验缓存依赖</span><br></pre></td></tr></table></figure><p>包括我问的朋友猜测的可能：</p><ol><li>npm版本过高，与项目不兼容，我重新安装了整个node，没有用；</li><li>磁盘权限不足（当时那个项目所在的文件是只读权限），改了也没有用；</li></ol><p>通过同事的验证得出了结果，是项目的配置文件出错，是的：</p><p><code>package-lock.json</code></p><p>就是他！罪魁祸首。我删掉这个文件直接重下依赖：<code>npm install</code>就没有问题了。</p><p>可以成功运行项目。</p><p>验证的过程是：</p><p>在其他路径下创建一个新的vue项目，进行相同的依赖安装（比如某某ui包），可以并多次可以成功安装；（由于同是在只读文件夹下创建，排除了磁盘权限问题）</p><p>参考： </p><p><a href="https://www.jianshu.com/p/3d209a682d7d" target="_blank" rel="noopener">npm安装依赖errno -4048报错</a></p><p><a href="https://stackoverflow.com/questions/30860795/fail-to-install-npm-package-npm-err-errno-4048" target="_blank" rel="noopener">oveflow上的问题</a></p>]]></content>
+    <content type="html"><![CDATA[<a id="more"></a><h2 id="刚开始踩的坑"><a href="#刚开始踩的坑" class="headerlink" title="刚开始踩的坑"></a>刚开始踩的坑</h2><p>打开vue项目后快乐<code>npm install</code>，然后一堆报错，内容如图：</p><p>查了很久不知道这个神秘的<code>errno:-4048</code><br>是个什么，google告诉我的方法基本没有用，有梦想的同学可以试试：</p><p>这是overflow上的回答：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean</span><br><span class="line">npm cache clean --force</span><br></pre></td></tr></table></figure><p>其他的回答：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm cache verify #校验缓存依赖</span><br></pre></td></tr></table></figure><p>包括我问的朋友猜测的可能：</p><ol><li>npm版本过高，与项目不兼容，我重新安装了整个node，没有用；</li><li>磁盘权限不足（当时那个项目所在的文件是只读权限），改了也没有用；</li></ol><p>通过同事的验证得出了结果，是项目的配置文件出错，是的：</p><p><code>package-lock.json</code></p><p>就是他！罪魁祸首。我删掉这个文件直接重下依赖：<code>npm install</code>就没有问题了。</p><p>可以成功运行项目。</p><p>验证的过程是：</p><p>在其他路径下创建一个新的vue项目，进行相同的依赖安装（比如某某ui包），可以并多次可以成功安装；（由于同是在只读文件夹下创建，排除了磁盘权限问题）</p><p>参考： </p><p><a href="https://www.jianshu.com/p/3d209a682d7d" target="_blank" rel="noopener">npm安装依赖errno -4048报错</a></p><p><a href="https://stackoverflow.com/questions/30860795/fail-to-install-npm-package-npm-err-errno-4048" target="_blank" rel="noopener">oveflow上的问题</a></p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h2 id=&quot;刚开始踩的坑&quot;&gt;&lt;a href=&quot;#刚开始踩的坑&quot; class=&quot;headerlink&quot; title=&quot;刚开始踩的坑&quot;&gt;&lt;/a&gt;刚开始踩的坑&lt;/h2&gt;&lt;p&gt;打开vue项目后快乐&lt;code&gt;npm install&lt;/code&gt;，然后一堆报错，内容如图：&lt;/p&gt;
-&lt;p
+        &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h2 id=&quot;刚开始踩的坑&quot;&gt;&lt;a href=&quot;#刚开始踩的坑&quot; class=&quot;headerlink&quot; title=&quot;刚开始踩的坑&quot;&gt;&lt;/a&gt;刚开始踩的坑&lt;/h2&gt;&lt;p&gt;打开vue项目后快乐&lt;code&gt;npm install&lt;/code&gt;，然
       
     
     </summary>
@@ -39,6 +39,26 @@
       <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
       <category term="npm" scheme="http://yoursite.com/tags/npm/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>语法糖和语法盐</title>
+    <link href="http://yoursite.com/2019/03/15/%E8%AF%AD%E6%B3%95%E7%B3%96%E5%92%8C%E8%AF%AD%E6%B3%95%E7%9B%90/"/>
+    <id>http://yoursite.com/2019/03/15/语法糖和语法盐/</id>
+    <published>2019-03-14T16:00:00.000Z</published>
+    <updated>2019-03-27T15:04:48.985Z</updated>
+    
+    <content type="html"><![CDATA[<p>前几天看到的一个挺有意思的说法，应该是程序员都默认的一个说法吧，觉得不太理解所以去查了一下；<br><a id="more"></a></p><h2 id="语法糖-糖衣语法"><a href="#语法糖-糖衣语法" class="headerlink" title="语法糖/糖衣语法"></a>语法糖/糖衣语法</h2><p>​    这个词来自于英国计算机科学家彼得·兰丁。</p><p>​    指计算机语言中添加的某种语法，这种语法对语言的功能没有影响，但是更方便程序员使用。语法糖让程序更加简洁，有更高的可读性。</p><p>​    以上来自wiki。</p><p>​    就是说把在不改变结构和功能的基础上，把代码写得更加简单易懂了；</p><p>​    从代码中来说就是for循环作为例子（比起while循环看起来更易懂），或者比如vue中的<code>v-model</code>；</p><p>​    更加浅显的话就是知乎里的那个回答了：</p><blockquote><p>就相当于汉语里的成语。</p><p>即，用更简练的言语表达较复杂的含义。在得到广泛接受的情况之下，可以提升交流的效率。</p></blockquote><p>​    这个理解就很OK；</p><p>​    看评论说这个回答就是一个语法糖，也挺有道理的哈哈哈。</p><h2 id="语法盐"><a href="#语法盐" class="headerlink" title="语法盐"></a>语法盐</h2><p><strong>语法盐</strong>（英语：<strong>syntactic salt</strong>）是指在计算机语言中为了降低程序员撰写出不良代码的设计，但其中仍会有潜藏错误存在的可能。</p><p>举例：（java中不允许将float变量赋予声明为int的变量，但是c和c++会自动把float变量舍去小数并赋值给int类型的变量）</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a;</span><br><span class="line"><span class="keyword">float</span> pi=<span class="number">3.1415</span>;</span><br><span class="line">a=pi;<span class="comment">//报错</span></span><br></pre></td></tr></table></figure><h2 id="语法糖精-语法糖浆"><a href="#语法糖精-语法糖浆" class="headerlink" title="语法糖精/语法糖浆"></a>语法糖精/语法糖浆</h2><p>语法糖精（Syntactic saccharin），是指语法上没必要的添砖加瓦，根本没有带来使用的便利。</p><p>简而言之，就是失败的语法糖；</p><h2 id="语法海洛因"><a href="#语法海洛因" class="headerlink" title="语法海洛因"></a>语法海洛因</h2><p>语法海-洛因（Syntactic saccharin），是指过于喜欢操作符重载，表面上程序紧凑了，但最后程序可能成天书了。</p><p>参考：</p><p><a href="https://www.zhihu.com/question/20651624" target="_blank" rel="noopener">什么是语法糖</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;前几天看到的一个挺有意思的说法，应该是程序员都默认的一个说法吧，觉得不太理解所以去查了一下；&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="碎片" scheme="http://yoursite.com/tags/%E7%A2%8E%E7%89%87/"/>
     
   </entry>
   
