@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[关于新手选择服务器（穷苦人民的烦恼）]]></title>
+    <url>%2F2019%2F03%2F27%2F%E5%85%B3%E4%BA%8E%E6%96%B0%E6%89%8B%E9%80%89%E6%8B%A9%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E7%A9%B7%E8%8B%A6%E4%BA%BA%E6%B0%91%E7%9A%84%E7%83%A6%E6%81%BC%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[1 关于服务器的基础知识 什么是vps什么是CMS服务器可以用来做什么以上内容决定慢慢更新。 2 具体的服务器可选项国内目前只看学生优惠： 配置 价格 备注 腾讯云 CPU：1核内存：2G带宽：1M硬盘：Linux/Windows 50G ￥10/月 需要抢购，0点6个月使用时长 阿里云轻量应用服务器 CPU：1核内存：2G带宽：5M硬盘：40G SSD流量：1000G ￥9.5/月 有效期不能超过学生身份有效期，毕业后不能续费 阿里云云服务器ECS CPU：1核内存：2G带宽：1M硬盘：40G ￥9.5/月 同上 国外 配置 价格 备注 Digital Ocean CPU：1核内存：1G硬盘：25G SSD流量：1T $5/month US TRANSFER传输1T是啥，带宽？ Linode CPU：1核内存：1G硬盘：25G SSD流量：1T $5/month（￥30/月） US 搬砖工（bandewagonghost） 看到一个说售后不好且ip可能被墙…… Vultr CPU：1核内存：512M硬盘：10G SSD带宽：0.5T(ipv6) $2.5/month（15/月） 其实我不是很烦恼，因为我没有翻墙的硬需求，能上个Google就够了。所以便宜才是我的选择。over。由于目前只是练手个人站，配置没需求，所以不用纠结，真好。 参考： VULTR 2019年全部优惠码盘点（支持支付宝） 知乎VULTR话题 2019优质VPS服务商推荐 VPS大全]]></content>
+      <tags>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[vue项目的坑:error-4048]]></title>
     <url>%2F2019%2F03%2F26%2Fvue%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%9D%91-%60error-4048%60%2F</url>
     <content type="text"><![CDATA[刚开始踩的坑打开vue项目后快乐npm install，然后一堆报错，内容如图：查了很久不知道这个神秘的errno:-4048是个什么，google告诉我的方法基本没有用，有梦想的同学可以试试： 这是overflow上的回答： 12npm cache cleannpm cache clean --force 其他的回答： 1npm cache verify #校验缓存依赖 包括我问的朋友猜测的可能： npm版本过高，与项目不兼容，我重新安装了整个node，没有用； 磁盘权限不足（当时那个项目所在的文件是只读权限），改了也没有用； 通过同事的验证得出了结果，是项目的配置文件出错，是的： package-lock.json 就是他！罪魁祸首。我删掉这个文件直接重下依赖：npm install就没有问题了。 可以成功运行项目。 验证的过程是： 在其他路径下创建一个新的vue项目，进行相同的依赖安装（比如某某ui包），可以并多次可以成功安装；（由于同是在只读文件夹下创建，排除了磁盘权限问题） 参考： npm安装依赖errno -4048报错 oveflow上的问题]]></content>
