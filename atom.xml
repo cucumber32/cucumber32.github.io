@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-28T14:15:34.476Z</updated>
+  <updated>2019-03-31T15:14:47.834Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>从零开始搭建nodeJs个人博客</title>
+    <link href="http://yoursite.com/2019/03/28/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAnodeJs%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://yoursite.com/2019/03/28/从零开始搭建nodeJs个人博客/</id>
+    <published>2019-03-27T16:00:00.000Z</published>
+    <updated>2019-03-31T15:14:47.834Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="1-前后端分离的项目初始化"><a href="#1-前后端分离的项目初始化" class="headerlink" title="1 前后端分离的项目初始化"></a>1 前后端分离的项目初始化</h2><h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>node.js</p><p>express</p><p>vue</p><a id="more"></a><ul><li>安装webpack：<code>npm install webpack -g</code></li><li>安装vue-cli：<code>npm install vue-cli -g</code></li></ul><h3 id="项目初始化"><a href="#项目初始化" class="headerlink" title="项目初始化"></a>项目初始化</h3><p>服务端：</p><ul><li><code>npm init</code></li><li>安装express：<code>npm install express --save</code></li></ul><p>客户端：</p><ul><li>创建项目：<code>vue init webpack 项目名</code></li><li>进入项目文件夹： <code>cd 项目名</code></li><li>安装项目依赖：<code>npm install</code>【新建项目还要安装吗……</li><li>安装vue路由模块：<code>npm install vue-router --save</code></li><li>网络请求模块：<code>npm install vue-resource --save</code></li></ul><p>安装依赖时出错：<code>npm ERR! code ELIFECYCLE</code></p><p>解决方法参考：</p><p><a href="https://www.jianshu.com/p/78056fe03ab9" target="_blank" rel="noopener">PhantomJS not found on PATH</a></p><p><a href="https://github.com/xhlwill/blog/issues/11" target="_blank" rel="noopener">PhantomJS not found on PATH #11</a></p><p><a href="https://blog.csdn.net/qwqw3333333/article/details/78223210" target="_blank" rel="noopener">npm install 安装phantomjs时npm ERR! code ELIFECYCLE npm ERR! errno 1 npm ERR! phantomjs-prebuilt@2.1.15</a></p><h3 id="代码分层"><a href="#代码分层" class="headerlink" title="代码分层"></a>代码分层</h3><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 后端项目结构</span></span><br><span class="line">BlogServer</span><br><span class="line"> |<span class="variable">_____node_modules</span></span><br><span class="line"> |<span class="variable">_____public</span><span class="comment">// 静态资源</span></span><br><span class="line"> |<span class="variable">_____routes</span><span class="comment">// 路由部分</span></span><br><span class="line"> |<span class="variable">_____schemas</span>  <span class="comment">// 存放数据库相关文件</span></span><br><span class="line"> |<span class="variable">_____controller</span> <span class="comment">//业务逻辑</span></span><br><span class="line"> |<span class="variable">_____models</span>  <span class="comment">// 操作数据库的文件</span></span><br><span class="line"> |<span class="variable">_____app</span>.js     <span class="comment">// 项目入口</span></span><br><span class="line"> |<span class="variable">_____README</span>.md</span><br></pre></td></tr></table></figure><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 前端项目结构</span></span><br><span class="line">BlogClient</span><br><span class="line"> |<span class="variable">_____components</span> </span><br><span class="line"> |<span class="variable">_____router</span></span><br><span class="line"> |<span class="variable">_____util</span><span class="comment">//工具类</span></span><br><span class="line"> |<span class="variable">_____api</span></span><br><span class="line"> |<span class="variable">_____main</span>.js</span><br><span class="line"> |<span class="variable">_____App</span>.vue</span><br></pre></td></tr></table></figure><p>———2019-3-31————</p><p>一晚上项目没建好，好烦；</p><h2 id="2-server-开始后端开发"><a href="#2-server-开始后端开发" class="headerlink" title="2 server 开始后端开发"></a>2 server 开始后端开发</h2><h2 id="3-client-开始前端开发"><a href="#3-client-开始前端开发" class="headerlink" title="3 client 开始前端开发"></a>3 client 开始前端开发</h2><p>参考：</p><p><a href="https://camp.qianduan.group/koa2/2/1/1" target="_blank" rel="noopener">https://camp.qianduan.group/koa2/2/1/1</a> 【不用koa2了</p><p><a href="https://segmentfault.com/a/1190000015575280" target="_blank" rel="noopener">https://segmentfault.com/a/1190000015575280</a></p><p><a href="https://www.cnblogs.com/chaohangz/p/6748918.html" target="_blank" rel="noopener"><a href="https://www.cnblogs.com/chaohangz/p/6748918.html" target="_blank" rel="noopener">一个 Vue + Node + MongoDB 博客系统</a></a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;1-前后端分离的项目初始化&quot;&gt;&lt;a href=&quot;#1-前后端分离的项目初始化&quot; class=&quot;headerlink&quot; title=&quot;1 前后端分离的项目初始化&quot;&gt;&lt;/a&gt;1 前后端分离的项目初始化&lt;/h2&gt;&lt;h3 id=&quot;环境准备&quot;&gt;&lt;a href=&quot;#环境准备&quot; class=&quot;headerlink&quot; title=&quot;环境准备&quot;&gt;&lt;/a&gt;环境准备&lt;/h3&gt;&lt;p&gt;node.js&lt;/p&gt;
+&lt;p&gt;express&lt;/p&gt;
+&lt;p&gt;vue&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
+    
+      <category term="nodeJs" scheme="http://yoursite.com/tags/nodeJs/"/>
+    
+      <category term="web" scheme="http://yoursite.com/tags/web/"/>
+    
+  </entry>
   
   <entry>
     <title>关于新手选择服务器（穷苦人民的烦恼）</title>

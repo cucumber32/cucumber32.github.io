@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[从零开始搭建nodeJs个人博客]]></title>
+    <url>%2F2019%2F03%2F28%2F%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BAnodeJs%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%2F</url>
+    <content type="text"><![CDATA[1 前后端分离的项目初始化环境准备node.js express vue 安装webpack：npm install webpack -g 安装vue-cli：npm install vue-cli -g 项目初始化服务端： npm init 安装express：npm install express --save 客户端： 创建项目：vue init webpack 项目名 进入项目文件夹： cd 项目名 安装项目依赖：npm install【新建项目还要安装吗…… 安装vue路由模块：npm install vue-router --save 网络请求模块：npm install vue-resource --save 安装依赖时出错：npm ERR! code ELIFECYCLE 解决方法参考： PhantomJS not found on PATH PhantomJS not found on PATH #11 npm install 安装phantomjs时npm ERR! code ELIFECYCLE npm ERR! errno 1 npm ERR! phantomjs-prebuilt@2.1.15 代码分层12345678910// 后端项目结构BlogServer |_____node_modules |_____public // 静态资源 |_____routes // 路由部分 |_____schemas // 存放数据库相关文件 |_____controller //业务逻辑 |_____models // 操作数据库的文件 |_____app.js // 项目入口 |_____README.md 12345678// 前端项目结构BlogClient |_____components |_____router |_____util //工具类 |_____api |_____main.js |_____App.vue ———2019-3-31———— 一晚上项目没建好，好烦； 2 server 开始后端开发3 client 开始前端开发参考： https://camp.qianduan.group/koa2/2/1/1 【不用koa2了 https://segmentfault.com/a/1190000015575280 一个 Vue + Node + MongoDB 博客系统]]></content>
+      <tags>
+        <tag>vue</tag>
+        <tag>nodeJs</tag>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[关于新手选择服务器（穷苦人民的烦恼）]]></title>
     <url>%2F2019%2F03%2F27%2F%E5%85%B3%E4%BA%8E%E6%96%B0%E6%89%8B%E9%80%89%E6%8B%A9%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%88%E7%A9%B7%E8%8B%A6%E4%BA%BA%E6%B0%91%E7%9A%84%E7%83%A6%E6%81%BC%EF%BC%89%2F</url>
     <content type="text"><![CDATA[1 关于服务器的基础知识 什么是vps什么是CMS服务器可以用来做什么以上内容决定慢慢更新。 2 具体的服务器可选项国内目前只看学生优惠： 配置 价格 备注 腾讯云 CPU：1核内存：2G带宽：1M硬盘：Linux/Windows 50G ￥10/月 需要抢购，0点6个月使用时长 阿里云轻量应用服务器 CPU：1核内存：2G带宽：5M硬盘：40G SSD流量：1000G ￥9.5/月 有效期不能超过学生身份有效期，毕业后不能续费 阿里云云服务器ECS CPU：1核内存：2G带宽：1M硬盘：40G ￥9.5/月 同上 国外 配置 价格 备注 Digital Ocean CPU：1核内存：1G硬盘：25G SSD流量：1T $5/month US TRANSFER传输1T是啥，带宽？ Linode CPU：1核内存：1G硬盘：25G SSD流量：1T $5/month（￥30/月） US 搬砖工（bandewagonghost） 看到一个说售后不好且ip可能被墙…… Vultr CPU：1核内存：512M硬盘：10G SSD带宽：0.5T(ipv6) $2.5/month（15/月） 其实我不是很烦恼，因为我没有翻墙的硬需求，能上个Google就够了。所以便宜才是我的选择。over。由于目前只是练手个人站，配置没需求，所以不用纠结，真好。 参考： VULTR 2019年全部优惠码盘点（支持支付宝） 知乎VULTR话题 2019优质VPS服务商推荐 VPS大全]]></content>
