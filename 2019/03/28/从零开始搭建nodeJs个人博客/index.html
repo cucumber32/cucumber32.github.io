@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="1 前后端分离的项目初始化环境准备node.js express vue">
+<meta name="description" content="前后端分离的项目初始化环境准备node.js express vue">
 <meta name="keywords" content="vue,nodeJs,web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从零开始搭建nodeJs个人博客">
 <meta property="og:url" content="http://yoursite.com/2019/03/28/从零开始搭建nodeJs个人博客/index.html">
 <meta property="og:site_name" content="好高兴啊又吃成长快乐了">
-<meta property="og:description" content="1 前后端分离的项目初始化环境准备node.js express vue">
+<meta property="og:description" content="前后端分离的项目初始化环境准备node.js express vue">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-02T15:32:16.190Z">
+<meta property="og:updated_time" content="2019-04-03T14:54:38.197Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从零开始搭建nodeJs个人博客">
-<meta name="twitter:description" content="1 前后端分离的项目初始化环境准备node.js express vue">
+<meta name="twitter:description" content="前后端分离的项目初始化环境准备node.js express vue">
 
 
 
@@ -385,7 +385,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  579
+                  776
                 </span>
               
 
@@ -410,7 +410,7 @@
       
 
       
-        <h2 id="1-前后端分离的项目初始化"><a href="#1-前后端分离的项目初始化" class="headerlink" title="1 前后端分离的项目初始化"></a>1 前后端分离的项目初始化</h2><h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>node.js</p>
+        <h2 id="前后端分离的项目初始化"><a href="#前后端分离的项目初始化" class="headerlink" title="前后端分离的项目初始化"></a>前后端分离的项目初始化</h2><h3 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h3><p>node.js</p>
 <p>express</p>
 <p>vue</p>
 <a id="more"></a>
@@ -429,7 +429,7 @@
 <ul>
 <li>创建项目：<code>vue init webpack 项目名</code></li>
 <li>进入项目文件夹： <code>cd 项目名</code></li>
-<li>安装项目依赖：<code>npm install</code>【新建项目还要安装吗……</li>
+<li>安装项目依赖：<code>npm install</code></li>
 <li>安装vue路由模块：<code>npm install vue-router --save</code></li>
 <li>网络请求模块：<code>npm install vue-resource --save</code></li>
 </ul>
@@ -440,9 +440,7 @@
 <p><a href="https://blog.csdn.net/qwqw3333333/article/details/78223210" target="_blank" rel="noopener">npm install 安装phantomjs时npm ERR! code ELIFECYCLE npm ERR! errno 1 npm ERR! phantomjs-prebuilt@2.1.15</a></p>
 <h3 id="代码分层"><a href="#代码分层" class="headerlink" title="代码分层"></a>代码分层</h3><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 后端项目结构</span></span><br><span class="line">BlogServer</span><br><span class="line"> |<span class="variable">_____node_modules</span></span><br><span class="line"> |<span class="variable">_____public</span>	<span class="comment">// 静态资源</span></span><br><span class="line"> |<span class="variable">_____routes</span>	<span class="comment">// 路由部分	</span></span><br><span class="line"> |<span class="variable">_____schemas</span>  <span class="comment">// 存放数据库相关文件</span></span><br><span class="line"> |<span class="variable">_____controller</span> <span class="comment">//业务逻辑</span></span><br><span class="line"> |<span class="variable">_____models</span>	  <span class="comment">// 操作数据库的文件</span></span><br><span class="line"> |<span class="variable">_____app</span>.js     <span class="comment">// 项目入口</span></span><br><span class="line"> |<span class="variable">_____README</span>.md</span><br></pre></td></tr></table></figure>
 <figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 前端项目结构</span></span><br><span class="line">BlogClient</span><br><span class="line"> |<span class="variable">_____router</span></span><br><span class="line"> |<span class="variable">_____util</span>	<span class="comment">//工具类</span></span><br><span class="line"> |<span class="variable">_____api</span></span><br><span class="line"> |<span class="variable">_____src</span></span><br><span class="line"> 		|<span class="variable">____assets</span></span><br><span class="line"> 		|<span class="variable">____static</span></span><br><span class="line"> 		|<span class="variable">____components</span></span><br><span class="line"> 		|<span class="variable">____main</span>.js</span><br><span class="line"> 		|<span class="variable">____App</span>.vue <span class="comment">//项目主页</span></span><br><span class="line"> |<span class="variable">_____node_modules</span></span><br><span class="line"> |<span class="variable">_____build</span></span><br><span class="line"> |<span class="variable">_____config</span></span><br><span class="line"> |<span class="variable">_____test</span></span><br></pre></td></tr></table></figure>
-<p>———2019-3-31————</p>
-<p>一晚上项目没建好，好烦；</p>
-<h2 id="2-server-开始后端开发"><a href="#2-server-开始后端开发" class="headerlink" title="2 server 开始后端开发"></a>2 server 开始后端开发</h2><h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><ol>
+<h2 id="server-开始后端开发"><a href="#server-开始后端开发" class="headerlink" title="server 开始后端开发"></a>server 开始后端开发</h2><h3 id="1-连接数据库"><a href="#1-连接数据库" class="headerlink" title="1 连接数据库"></a>1 连接数据库</h3><ol>
 <li><p>安装MongoDB：<a href="https://www.mongodb.com/download-center#community" target="_blank" rel="noopener">官网</a></p>
 <p><a href="https://blog.csdn.net/weixin_38958597/article/details/87130450" target="_blank" rel="noopener">安装过程参考</a>，我安装的版本为4.0.8，基本不需要再手动配置；</p>
 <p>可双击<code>\安装目录\bin\mongo.exe</code>启动MongoDB（与cmd下输入mongo等价），url输入<code>127.0.0.1:27017</code>检查是否运行；</p>
@@ -451,19 +449,39 @@
 <li><p>配置数据库：<code>npm install mongoose --save</code></p>
 </li>
 <li><p>创建数据库【好的我打算找一款合适的mongoDB可视化工具</p>
+<ul>
+<li><a href="https://github.com/mrvautin/adminMongo" target="_blank" rel="noopener">adminMongo</a>【web、免费 get√</li>
+<li>sutdio 3t 【收费</li>
+<li>compass【官方gui</li>
+</ul>
+<p>1）<code>git clone adminMongo</code></p>
+<ul>
+<li>这里遇到一个问题：vsvode里git命令报错：<code>无法将“git”项识别为 cmdlet、函数、脚本文件或可运行程序的名称</code>；</li>
+</ul>
+<p>解决方案是：关闭vs-code，右键以管理员方式运行；长期的话：右键-属性-兼容性-以管理员身份运行此程序-应用；</p>
+<ul>
+<li><p>然后我又遇到一个问题：……好惨；错误提示如下：</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">CAfile:</span> <span class="string">F:</span><span class="regexp">/【程序猿】/</span>Git<span class="regexp">/Git/</span>mingw64<span class="regexp">/ssl/</span>certs/ca-bundle.crt</span><br><span class="line"><span class="string">CApath:</span> none</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可能是因为我之前用的中文名称，后来改了……</span></span><br></pre></td></tr></table></figure>
+<p>解决方法：<a href="https://blog.csdn.net/sdhongjun/article/details/52144253" target="_blank" rel="noopener">git提示error setting certificate verify locations解决办法</a></p>
+<p>首先，修改路径为正确的：<code>git config --system http.sslcainfo &quot;F:\0to1\Git\Git\mingw64\ssl\certs\ca-bundle.crt&quot;</code></p>
+<p>好的，然后我就可以了；棒，不愧是我。</p>
+</li>
+</ul>
+<p>2）安装依赖：<code>npm install</code></p>
+<p>3）启动：<code>npm start</code> or <code>node app.js</code></p>
+<p>直接打开<a href="http://127.0.0.1:1234/就能进入可视化界面，具体使用可以看readme；" target="_blank" rel="noopener">http://127.0.0.1:1234/就能进入可视化界面，具体使用可以看readme；</a></p>
+<p>有机会的自己写一篇博客记录一下；</p>
 </li>
 <li><p>连接数据库（测试数据库是否能正常连接）</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="comment">// 加载数据库模块</span></span><br><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line">mongoose.connect(<span class="string">'mongodb://localhost:27017/testblog'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'数据库连接失败'</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'数据库连接成功'</span>);</span><br><span class="line">        app.listen(<span class="number">4000</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>———2019-4-2——–</p>
-<p>今天就安装了一下数据库，明天找一下合适的可视化工具，并连接上；</p>
-<p>要求完成：用户表的设计以及登录注册功能；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// index.js</span></span><br><span class="line"><span class="comment">// 加载数据库模块</span></span><br><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">"mongoose"</span>);</span><br><span class="line">mongoose.connect(<span class="string">'mongodb://localhost:27017/MyBlog'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(err)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'数据库连接失败'</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">'数据库连接成功'</span>);</span><br><span class="line">        app.listen(<span class="number">2333</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="3-client-开始前端开发"><a href="#3-client-开始前端开发" class="headerlink" title="3 client 开始前端开发"></a>3 client 开始前端开发</h2><p>参考：</p>
+<h2 id="client-开始前端开发"><a href="#client-开始前端开发" class="headerlink" title="client 开始前端开发"></a>client 开始前端开发</h2><p>参考：</p>
 <p><a href="https://camp.qianduan.group/koa2/2/1/1" target="_blank" rel="noopener">https://camp.qianduan.group/koa2/2/1/1</a> 【不用koa2了</p>
 <p><a href="https://segmentfault.com/a/1190000015575280" target="_blank" rel="noopener">https://segmentfault.com/a/1190000015575280</a></p>
-<p><a href="https://segmentfault.com/a/1190000015575325" target="_blank" rel="noopener"><a href="https://segmentfault.com/a/1190000015575325" target="_blank" rel="noopener">02-个人博客笔记-登录注册接口的实现</a></a></p>
-<p><a href="https://www.cnblogs.com/chaohangz/p/6748918.html" target="_blank" rel="noopener"><a href="https://www.cnblogs.com/chaohangz/p/6748918.html" target="_blank" rel="noopener">一个 Vue + Node + MongoDB 博客系统</a></a></p>
+<p><a href="https://segmentfault.com/a/1190000015575325" target="_blank" rel="noopener">02-个人博客笔记-登录注册接口的实现</a></p>
+<p><a href="https://www.cnblogs.com/chaohangz/p/6748918.html" target="_blank" rel="noopener">一个 Vue + Node + MongoDB 博客系统</a></p>
+<p><a href="https://blog.csdn.net/zmx729618/article/details/79959640" target="_blank" rel="noopener">MongoDb可视化工具推荐</a></p>
 
       
     </div>
@@ -659,7 +677,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-前后端分离的项目初始化"><span class="nav-number">1.</span> <span class="nav-text">1 前后端分离的项目初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境准备"><span class="nav-number">1.1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目初始化"><span class="nav-number">1.2.</span> <span class="nav-text">项目初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码分层"><span class="nav-number">1.3.</span> <span class="nav-text">代码分层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-server-开始后端开发"><span class="nav-number">2.</span> <span class="nav-text">2 server 开始后端开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#连接数据库"><span class="nav-number">2.1.</span> <span class="nav-text">连接数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-client-开始前端开发"><span class="nav-number">3.</span> <span class="nav-text">3 client 开始前端开发</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前后端分离的项目初始化"><span class="nav-number">1.</span> <span class="nav-text">前后端分离的项目初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境准备"><span class="nav-number">1.1.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目初始化"><span class="nav-number">1.2.</span> <span class="nav-text">项目初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码分层"><span class="nav-number">1.3.</span> <span class="nav-text">代码分层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#server-开始后端开发"><span class="nav-number">2.</span> <span class="nav-text">server 开始后端开发</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-连接数据库"><span class="nav-number">2.1.</span> <span class="nav-text">1 连接数据库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#client-开始前端开发"><span class="nav-number">3.</span> <span class="nav-text">client 开始前端开发</span></a></li></ol></div>
             
 
           </div>
