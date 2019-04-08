@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="web,node,vue,">
+  <meta name="keywords" content="node,vue,web,">
 
 
 
@@ -96,18 +96,18 @@
 
 
 
-<meta name="description" content="后端1 创建node项目npm init npm install express 安装依赖：npm install express --save 创建app.js: 123456var express = require(&apos;express&apos;);var app = express();app.listen(2333,function()&amp;#123;    console.log(&apos;server is">
-<meta name="keywords" content="web,node,vue">
+<meta name="description" content="1 准备工作/创建项目后端">
+<meta name="keywords" content="node,vue,web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前后端分离——个人博客开发">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/前后端分离——个人博客开发/index.html">
 <meta property="og:site_name" content="好高兴啊又吃成长快乐了">
-<meta property="og:description" content="后端1 创建node项目npm init npm install express 安装依赖：npm install express --save 创建app.js: 123456var express = require(&apos;express&apos;);var app = express();app.listen(2333,function()&amp;#123;    console.log(&apos;server is">
+<meta property="og:description" content="1 准备工作/创建项目后端">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-07T15:54:25.651Z">
+<meta property="og:updated_time" content="2019-04-08T14:53:41.939Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前后端分离——个人博客开发">
-<meta name="twitter:description" content="后端1 创建node项目npm init npm install express 安装依赖：npm install express --save 创建app.js: 123456var express = require(&apos;express&apos;);var app = express();app.listen(2333,function()&amp;#123;    console.log(&apos;server is">
+<meta name="twitter:description" content="1 准备工作/创建项目后端">
 
 
 
@@ -385,7 +385,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  131
+                  669
                 </span>
               
 
@@ -410,18 +410,37 @@
       
 
       
-        <h2 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h2><h3 id="1-创建node项目"><a href="#1-创建node项目" class="headerlink" title="1 创建node项目"></a>1 创建node项目</h3><p><code>npm init</code></p>
+        <h2 id="1-准备工作-创建项目"><a href="#1-准备工作-创建项目" class="headerlink" title="1 准备工作/创建项目"></a>1 准备工作/创建项目</h2><h3 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h3><a id="more"></a>
+<p>创建node项目</p>
+<p><code>npm init</code></p>
 <p><code>npm install express</code></p>
 <p>安装依赖：<code>npm install express --save</code></p>
 <p>创建app.js:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> app = express();</span><br><span class="line"></span><br><span class="line">app.listen(<span class="number">2333</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'server is on "http://localhost:2333"'</span>);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p><code>node app.js</code>测试是否能运行；</p>
-<h2 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h2><h3 id="1-创建vue项目"><a href="#1-创建vue项目" class="headerlink" title="1 创建vue项目"></a>1 创建vue项目</h3><p><code>vue init webpack client</code></p>
+<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>创建vue项目</p>
+<p><code>vue init webpack client</code></p>
 <p><code>npm install</code></p>
 <p>测试是否能运行: <code>npm run dev</code></p>
-<h2 id="数据库准备"><a href="#数据库准备" class="headerlink" title="数据库准备"></a>数据库准备</h2><p>使用的可视化为adminmongo</p>
+<h2 id="2-开始进行前后端接口测试"><a href="#2-开始进行前后端接口测试" class="headerlink" title="2 开始进行前后端接口测试"></a>2 开始进行前后端接口测试</h2><h3 id="前端页面表单构建"><a href="#前端页面表单构建" class="headerlink" title="前端页面表单构建"></a>前端页面表单构建</h3><p>这个随便写个就好了；下次写好了再补上；</p>
+<h3 id="ajax请求"><a href="#ajax请求" class="headerlink" title="ajax请求"></a>ajax请求</h3><p>vue中请求数据需要使用第三方库<code>axios</code></p>
+<p>安装axios：<code>cnpm install axios --save</code></p>
+<h4 id="1-引入axios并配置基础路径："><a href="#1-引入axios并配置基础路径：" class="headerlink" title="1 引入axios并配置基础路径："></a>1 引入axios并配置基础路径：</h4><p>（这里涉及到跨域请求node，所以所有请求前都需要添加node的基础地址）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// client/src/main.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span> <span class="comment">// 引入axios组件</span></span><br><span class="line">axios.defaults.withCredentials = <span class="literal">true</span> <span class="comment">// 跨域保存session有用</span></span><br><span class="line">axios.defaults.baseURL = <span class="string">'http://localhost:2333'</span> <span class="comment">// 打包的时候直接删掉，默认基础路径在这里配置</span></span><br><span class="line"><span class="comment">// 将 axios 赋值给 Vue，方便在子组件里面使用</span></span><br><span class="line">Vue.prototype.$reqs = axios</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>由于是跨域请求，所以需要配置<code>withCredentials</code>为true，可以避免每次都被识别为新的请求；</p>
+<p>在vue中，可以使用代理去实现跨域，但是这样的话每次需要配置新地址，这里直接采用配置跨域，只需要一次配置。</p>
+</blockquote>
+<h4 id="2-在Login-vue中写登录的具体方法"><a href="#2-在Login-vue中写登录的具体方法" class="headerlink" title="2 在Login.vue中写登录的具体方法"></a>2 在Login.vue中写登录的具体方法</h4><p>将如下登录请求代码写在 login方法中，登录的地址为 “/users/login” ，这个接口我们一会儿在node中去写。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// client/src/components/login.vue</span></span><br><span class="line"></span><br><span class="line">login () &#123;</span><br><span class="line">      <span class="keyword">var</span> _this = <span class="keyword">this</span></span><br><span class="line">      <span class="keyword">this</span>.disablebtn = <span class="literal">true</span></span><br><span class="line">      <span class="keyword">this</span>.loginText = <span class="string">'登录中...'</span></span><br><span class="line">      <span class="comment">// this.$reqs就访问到了main.js中绑定的axios</span></span><br><span class="line">      <span class="keyword">this</span>.$reqs.post(<span class="string">'/users/login'</span>, &#123;</span><br><span class="line">        username: <span class="keyword">this</span>.username,</span><br><span class="line">        password: <span class="keyword">this</span>.password</span><br><span class="line">      &#125;).then(<span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 成功</span></span><br><span class="line">        <span class="built_in">console</span>.log(result)</span><br><span class="line">        _this.disablebtn = <span class="literal">false</span></span><br><span class="line">        _this.loginText = <span class="string">'登录'</span></span><br><span class="line">      &#125;).catch(<span class="function"><span class="keyword">function</span> (<span class="params">error</span>) </span>&#123;</span><br><span class="line">        <span class="comment">// 失败</span></span><br><span class="line">        <span class="built_in">console</span>.log(error)</span><br><span class="line">        _this.disablebtn = <span class="literal">false</span></span><br><span class="line">        _this.loginText = <span class="string">'登录'</span></span><br><span class="line">      &#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这里遇到过一个错误，加上<code>console.log(error)</code>就可以了，说明是因为没有用到error参数引起的报错……【ESLint真的很严格。</p>
+<h3 id="后端接口"><a href="#后端接口" class="headerlink" title="后端接口"></a>后端接口</h3><p>关于后端，需要注意：</p>
+<p>必须使用<code>body-parser</code>中间件解析表单，否则<code>req.body</code>会无法解析，打印为undefied。</p>
+<p>使用<code>body-parser</code>后，打印的data为{}。发现是没有解析JSON格式，所以读取不到数据，于是补上之后：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bodyPaser = <span class="built_in">require</span>(<span class="string">'body-paser'</span>)	<span class="comment">// express现在不使用body-parser中间件无法解析req</span></span><br><span class="line">app.use(bodyPaser.json) <span class="comment">// 不写这句打印出来的data是&#123;&#125;  </span></span><br><span class="line">app.use(bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span>&#125;))</span><br></pre></td></tr></table></figure>
 <p>参考：</p>
 <p><a href="https://www.cnblogs.com/chengduxiaoc/p/7718768.html" target="_blank" rel="noopener">打通前后端全栈开发node+vue进阶【课程学习系统项目实战详细讲解】(1)：创建项目，完成登录功能</a></p>
+<p><a href="https://blog.csdn.net/TyrionJ/article/details/81990048" target="_blank" rel="noopener">express做登录验证获取req.body为空对象问题</a></p>
 
       
     </div>
@@ -439,11 +458,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/web/" rel="tag"><i class="fa fa-tag"></i> web</a>
-          
             <a href="/tags/node/" rel="tag"><i class="fa fa-tag"></i> node</a>
           
             <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+          
+            <a href="/tags/web/" rel="tag"><i class="fa fa-tag"></i> web</a>
           
         </div>
       
@@ -617,7 +636,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#后端"><span class="nav-number">1.</span> <span class="nav-text">后端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建node项目"><span class="nav-number">1.1.</span> <span class="nav-text">1 创建node项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前端"><span class="nav-number">2.</span> <span class="nav-text">前端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-创建vue项目"><span class="nav-number">2.1.</span> <span class="nav-text">1 创建vue项目</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库准备"><span class="nav-number">3.</span> <span class="nav-text">数据库准备</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-准备工作-创建项目"><span class="nav-number">1.</span> <span class="nav-text">1 准备工作/创建项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#后端"><span class="nav-number">1.1.</span> <span class="nav-text">后端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端"><span class="nav-number">1.2.</span> <span class="nav-text">前端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-开始进行前后端接口测试"><span class="nav-number">2.</span> <span class="nav-text">2 开始进行前后端接口测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端页面表单构建"><span class="nav-number">2.1.</span> <span class="nav-text">前端页面表单构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax请求"><span class="nav-number">2.2.</span> <span class="nav-text">ajax请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-引入axios并配置基础路径："><span class="nav-number">2.2.1.</span> <span class="nav-text">1 引入axios并配置基础路径：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-在Login-vue中写登录的具体方法"><span class="nav-number">2.2.2.</span> <span class="nav-text">2 在Login.vue中写登录的具体方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后端接口"><span class="nav-number">2.3.</span> <span class="nav-text">后端接口</span></a></li></ol></li></ol></div>
             
 
           </div>
