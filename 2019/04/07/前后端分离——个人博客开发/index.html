@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="node,vue,web,">
+  <meta name="keywords" content="web,vue,node,">
 
 
 
@@ -97,14 +97,14 @@
 
 
 <meta name="description" content="1 准备工作/创建项目后端">
-<meta name="keywords" content="node,vue,web">
+<meta name="keywords" content="web,vue,node">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前后端分离——个人博客开发">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/前后端分离——个人博客开发/index.html">
 <meta property="og:site_name" content="好高兴啊又吃成长快乐了">
 <meta property="og:description" content="1 准备工作/创建项目后端">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-08T14:53:41.939Z">
+<meta property="og:updated_time" content="2019-04-16T16:49:57.253Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前后端分离——个人博客开发">
 <meta name="twitter:description" content="1 准备工作/创建项目后端">
@@ -385,7 +385,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  669
+                  1.1k
                 </span>
               
 
@@ -438,7 +438,39 @@
 <p>必须使用<code>body-parser</code>中间件解析表单，否则<code>req.body</code>会无法解析，打印为undefied。</p>
 <p>使用<code>body-parser</code>后，打印的data为{}。发现是没有解析JSON格式，所以读取不到数据，于是补上之后：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> bodyPaser = <span class="built_in">require</span>(<span class="string">'body-paser'</span>)	<span class="comment">// express现在不使用body-parser中间件无法解析req</span></span><br><span class="line">app.use(bodyPaser.json) <span class="comment">// 不写这句打印出来的data是&#123;&#125;  </span></span><br><span class="line">app.use(bodyParser.urlencoded(&#123; <span class="attr">extended</span>: <span class="literal">false</span>&#125;))</span><br></pre></td></tr></table></figure>
-<p>参考：</p>
+<p>此时可以把代码交给git了，然后再开发：</p>
+<ol>
+<li>打开项目：<code>git init</code></li>
+<li>提交所有的代码：<ul>
+<li><code>git add .</code>  </li>
+<li><code>git commit -m &#39;msg&#39;</code></li>
+</ul>
+</li>
+<li>与github仓库连接：<code>git remote add origin git项目的http地址</code></li>
+<li>推送：<code>git push -u origin master</code></li>
+</ol>
+<h2 id="3-实现前端开发部分"><a href="#3-实现前端开发部分" class="headerlink" title="3 实现前端开发部分"></a>3 实现前端开发部分</h2><p>UI使用iview：<code>npm install iview --save</code>，所以直接配置：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">import</span> iView <span class="keyword">from</span> <span class="string">'iview'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'iview/dist/styles/iview.css'</span>;</span><br><span class="line">Vue.use(iView)</span><br></pre></td></tr></table></figure>
+<p>主要页面：</p>
+<ol>
+<li>博客主页；</li>
+<li>单文章阅读页；</li>
+<li>后台管理页面：<ul>
+<li>编辑文章；</li>
+<li>文章列表管理；</li>
+</ul>
+</li>
+<li>登录页；</li>
+</ol>
+<h3 id="0）设置路由"><a href="#0）设置路由" class="headerlink" title="0）设置路由"></a>0）设置路由</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @/router/index.js</span></span><br><span class="line"><span class="comment">// 在这里设置路由数组</span></span><br><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Router <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"><span class="keyword">import</span> Index <span class="keyword">from</span> <span class="string">'@/modules/index'</span></span><br><span class="line"><span class="keyword">import</span> Login <span class="keyword">from</span> <span class="string">'@/components/login'</span></span><br><span class="line"></span><br><span class="line">Vue.use(Router) </span><br><span class="line"><span class="comment">// 注意：这里我在index.js里面new了一个Router对象，所以之后在main.js里面直接引入就好，不需要再新建一个router对象了，看了很多网页上的例子都是写在main.js里面的；</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> Router(&#123;</span><br><span class="line">  routes: [</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/'</span>,</span><br><span class="line">      name: <span class="string">'Login'</span>,</span><br><span class="line">      component: Login</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      path: <span class="string">'/index'</span>, <span class="comment">// 路径</span></span><br><span class="line">      name: <span class="string">'Index'</span>, <span class="comment">// 名称</span></span><br><span class="line">      component: Index</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  mode: <span class="string">'history'</span> <span class="comment">// 设置这个可以不自动在url上添加#</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>然后再<code>main.js</code>中设置：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @/main.js</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'./router'</span> <span class="comment">// 引入router，这里只写到文件夹就可以，会自动识别到index.js</span></span><br><span class="line">...</span><br><span class="line"><span class="comment">// 由于在index.js中已经新建好了Router对象，这里不用再次建立</span></span><br><span class="line">...</span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    router: router <span class="comment">// 给vue实例配置路由router</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="1）主页"><a href="#1）主页" class="headerlink" title="1）主页"></a>1）主页</h3><blockquote>
+<p>遇到问题：iView的<code>&lt;/Col&gt;</code>标签eslint会报错：<code>Parsing error: x-invalid-end-tag</code>；</p>
+<p>解决方法：在<code>.eslintrc.js</code>的rules加上<code>&quot;vue/no-parsing-error&quot;: [2, { &quot;x-invalid-end-tag&quot;: false }]</code>；之后重启vs-code。</p>
+</blockquote>
+<p>写了一个头部组件，之后都可以用到；</p>
+<h3 id="2）后台管理页"><a href="#2）后台管理页" class="headerlink" title="2）后台管理页"></a>2）后台管理页</h3><p>参考：</p>
 <p><a href="https://www.cnblogs.com/chengduxiaoc/p/7718768.html" target="_blank" rel="noopener">打通前后端全栈开发node+vue进阶【课程学习系统项目实战详细讲解】(1)：创建项目，完成登录功能</a></p>
 <p><a href="https://blog.csdn.net/TyrionJ/article/details/81990048" target="_blank" rel="noopener">express做登录验证获取req.body为空对象问题</a></p>
 
@@ -458,11 +490,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/node/" rel="tag"><i class="fa fa-tag"></i> node</a>
+            <a href="/tags/web/" rel="tag"><i class="fa fa-tag"></i> web</a>
           
             <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
           
-            <a href="/tags/web/" rel="tag"><i class="fa fa-tag"></i> web</a>
+            <a href="/tags/node/" rel="tag"><i class="fa fa-tag"></i> node</a>
           
         </div>
       
@@ -636,7 +668,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-准备工作-创建项目"><span class="nav-number">1.</span> <span class="nav-text">1 准备工作/创建项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#后端"><span class="nav-number">1.1.</span> <span class="nav-text">后端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端"><span class="nav-number">1.2.</span> <span class="nav-text">前端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-开始进行前后端接口测试"><span class="nav-number">2.</span> <span class="nav-text">2 开始进行前后端接口测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端页面表单构建"><span class="nav-number">2.1.</span> <span class="nav-text">前端页面表单构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax请求"><span class="nav-number">2.2.</span> <span class="nav-text">ajax请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-引入axios并配置基础路径："><span class="nav-number">2.2.1.</span> <span class="nav-text">1 引入axios并配置基础路径：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-在Login-vue中写登录的具体方法"><span class="nav-number">2.2.2.</span> <span class="nav-text">2 在Login.vue中写登录的具体方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后端接口"><span class="nav-number">2.3.</span> <span class="nav-text">后端接口</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-准备工作-创建项目"><span class="nav-number">1.</span> <span class="nav-text">1 准备工作/创建项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#后端"><span class="nav-number">1.1.</span> <span class="nav-text">后端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端"><span class="nav-number">1.2.</span> <span class="nav-text">前端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-开始进行前后端接口测试"><span class="nav-number">2.</span> <span class="nav-text">2 开始进行前后端接口测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端页面表单构建"><span class="nav-number">2.1.</span> <span class="nav-text">前端页面表单构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax请求"><span class="nav-number">2.2.</span> <span class="nav-text">ajax请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-引入axios并配置基础路径："><span class="nav-number">2.2.1.</span> <span class="nav-text">1 引入axios并配置基础路径：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-在Login-vue中写登录的具体方法"><span class="nav-number">2.2.2.</span> <span class="nav-text">2 在Login.vue中写登录的具体方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后端接口"><span class="nav-number">2.3.</span> <span class="nav-text">后端接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-实现前端开发部分"><span class="nav-number">3.</span> <span class="nav-text">3 实现前端开发部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0）设置路由"><span class="nav-number">3.1.</span> <span class="nav-text">0）设置路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1）主页"><span class="nav-number">3.2.</span> <span class="nav-text">1）主页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2）后台管理页"><span class="nav-number">3.3.</span> <span class="nav-text">2）后台管理页</span></a></li></ol></li></ol></div>
             
 
           </div>
