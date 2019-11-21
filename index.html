@@ -303,6 +303,215 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/20/2019-11-20-outlook中的html模板/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="黄瓜">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="好高兴啊又吃成长快乐了">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/20/2019-11-20-outlook中的html模板/" itemprop="url">outlook中的html模板</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-20T00:00:00+08:00">
+                2019-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/20/2019-11-20-outlook中的html模板/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/20/2019-11-20-outlook中的html模板/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2019/11/20/2019-11-20-outlook中的html模板/" class="leancloud_visitors" data-flag-title="outlook中的html模板">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  679
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>虽然outlook的兼容令人难过，不过开心的是，只要你搞定了它，其他邮件也基本不会有太大问题；</p>
+<h2 id="关于outlook的兼容性须知"><a href="#关于outlook的兼容性须知" class="headerlink" title="关于outlook的兼容性须知"></a>关于outlook的兼容性须知</h2><p>outlook使用的是word的HTML渲染引擎，基本上只支持HTML2。</p>
+<p>所以此时，</p>
+<ol>
+<li><p>放弃js，放弃H5，放弃CSS3。</p>
+</li>
+<li><p>放弃掉<code>DOCTYPE</code>,<code>html</code>,<code>head</code>,<code>body</code>标签，直接从body的内部开始写；因为outlook渲染时可能会把这些标签都删除掉；</p>
+</li>
+<li>放弃<code>div+css</code>布局，推荐使用<code>table</code>布局;</li>
+<li>使用内联样式；</li>
+<li>能使用属性就不要使用样式；</li>
+</ol>
+<h2 id="一些实现上的提示"><a href="#一些实现上的提示" class="headerlink" title="一些实现上的提示"></a>一些实现上的提示</h2><h3 id="1-布局：table"><a href="#1-布局：table" class="headerlink" title="1 布局：table"></a>1 布局：table</h3><p>根据查到的资料，和伟大的实践真理，只有table布局最稳妥。其他布局都会由于解析原因出现一些这样那样的问题；</p>
+<p>对于表格来说，需要注意的样式or属性如下:</p>
+<ol>
+<li><p>边框，默认设置border，表格内边框和外边框之间会有缝隙，所以一般都要使用<code>style=&quot;border-collapse: collapse;&quot;</code>令边框合并；</p>
+<ul>
+<li>对于表格的边框样式，一定要每个单元格都设置才能全部生效；</li>
+<li>如果需要设置整个表格的外边框样式，要把表格的<code>border</code>属性设为0，否则样式会被表格默认黑色边框覆盖，无法显示；</li>
+</ul>
+</li>
+<li><p>边距：</p>
+<ul>
+<li>对于outlook来说table的padding属性和cellpadding是一个效果；不过不推荐使用padding，最好使用表格属性；</li>
+<li>cellspacing一般设置为0，基本和普通html一致；</li>
+</ul>
+</li>
+<li><p>宽度，表格布局，记得加上这行：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">"width: 100%"</span>&gt;</span><span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>防止手机上显示全挤在一个单元格里；</p>
+</li>
+</ol>
+<h3 id="2-图片"><a href="#2-图片" class="headerlink" title="2 图片"></a>2 图片</h3><ul>
+<li><p>大小的设置：</p>
+<p>在outlook中，用style来设置宽高是无效的；需要直接使用<code>width=&quot;10&quot; height=&quot;10&quot;</code>属性来设置，不需要写单位；</p>
+<p>值得一提的是，如果图片使用的不是路径，而是base64，那么宽高设置即使是属性也无效；</p>
+</li>
+<li><p>outlook显示不支持透明背景的显示，会直接变成白色背景；</p>
+</li>
+</ul>
+<p>所以，总结一下，对于outlook，很多时候需要在图片本身进行一些处理，因为很多样式会无效；</p>
+<h2 id="如何预览你的html邮件模板"><a href="#如何预览你的html邮件模板" class="headerlink" title="如何预览你的html邮件模板"></a>如何预览你的html邮件模板</h2><ol>
+<li>用编辑器写好一个html页面；</li>
+<li>用IE打开你的页面；【推荐IE，其他浏览器也可以；推荐IE，预览效果和outlook比较接近；</li>
+<li>复制整个页面，对，是渲染后的页面；</li>
+<li>打开outlook，新建邮件，粘贴进去。这就是你的模板在outlook邮件里的样子了；</li>
+</ol>
+<p>参考：</p>
+<p><a href="http://ju.outofmemory.cn/entry/92176" target="_blank" rel="noopener">怎样写出兼容Outlook2010的HTML邮件</a></p>
+<p><a href="https://segmentfault.com/a/1190000008864116#articleHeader5" target="_blank" rel="noopener">HTML邮件兼容问题与解决方案</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/前后端分离——个人博客开发/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -387,7 +596,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  1.9k
                 </span>
               
 
@@ -1324,7 +1533,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1337,7 +1546,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

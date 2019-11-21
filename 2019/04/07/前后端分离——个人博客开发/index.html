@@ -83,7 +83,7 @@
 
 
 
-  <meta name="keywords" content="web,vue,node,">
+  <meta name="keywords" content="vue,web,node,">
 
 
 
@@ -97,14 +97,14 @@
 
 
 <meta name="description" content="1 准备工作/创建项目后端">
-<meta name="keywords" content="web,vue,node">
+<meta name="keywords" content="vue,web,node">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前后端分离——个人博客开发">
 <meta property="og:url" content="http://yoursite.com/2019/04/07/前后端分离——个人博客开发/index.html">
 <meta property="og:site_name" content="好高兴啊又吃成长快乐了">
 <meta property="og:description" content="1 准备工作/创建项目后端">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-16T16:49:57.253Z">
+<meta property="og:updated_time" content="2019-05-14T09:21:19.476Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前后端分离——个人博客开发">
 <meta name="twitter:description" content="1 准备工作/创建项目后端">
@@ -385,7 +385,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.1k
+                  1.9k
                 </span>
               
 
@@ -426,7 +426,7 @@
 <h3 id="ajax请求"><a href="#ajax请求" class="headerlink" title="ajax请求"></a>ajax请求</h3><p>vue中请求数据需要使用第三方库<code>axios</code></p>
 <p>安装axios：<code>cnpm install axios --save</code></p>
 <h4 id="1-引入axios并配置基础路径："><a href="#1-引入axios并配置基础路径：" class="headerlink" title="1 引入axios并配置基础路径："></a>1 引入axios并配置基础路径：</h4><p>（这里涉及到跨域请求node，所以所有请求前都需要添加node的基础地址）</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// client/src/main.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span> <span class="comment">// 引入axios组件</span></span><br><span class="line">axios.defaults.withCredentials = <span class="literal">true</span> <span class="comment">// 跨域保存session有用</span></span><br><span class="line">axios.defaults.baseURL = <span class="string">'http://localhost:2333'</span> <span class="comment">// 打包的时候直接删掉，默认基础路径在这里配置</span></span><br><span class="line"><span class="comment">// 将 axios 赋值给 Vue，方便在子组件里面使用</span></span><br><span class="line">Vue.prototype.$reqs = axios</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// @/main.js</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span> <span class="comment">// 引入axios组件</span></span><br><span class="line">axios.defaults.withCredentials = <span class="literal">true</span> <span class="comment">// 跨域保存session有用</span></span><br><span class="line">axios.defaults.baseURL = <span class="string">'http://localhost:2333'</span> <span class="comment">// 打包的时候直接删掉，默认基础路径在这里配置</span></span><br><span class="line"><span class="comment">// 将 axios 赋值给 Vue，方便在子组件里面使用</span></span><br><span class="line">Vue.prototype.$reqs = axios</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>由于是跨域请求，所以需要配置<code>withCredentials</code>为true，可以避免每次都被识别为新的请求；</p>
 <p>在vue中，可以使用代理去实现跨域，但是这样的话每次需要配置新地址，这里直接采用配置跨域，只需要一次配置。</p>
@@ -470,7 +470,77 @@
 <p>解决方法：在<code>.eslintrc.js</code>的rules加上<code>&quot;vue/no-parsing-error&quot;: [2, { &quot;x-invalid-end-tag&quot;: false }]</code>；之后重启vs-code。</p>
 </blockquote>
 <p>写了一个头部组件，之后都可以用到；</p>
-<h3 id="2）后台管理页"><a href="#2）后台管理页" class="headerlink" title="2）后台管理页"></a>2）后台管理页</h3><p>参考：</p>
+<h3 id="2）登录、注册"><a href="#2）登录、注册" class="headerlink" title="2）登录、注册"></a>2）登录、注册</h3><p>遇到一个问题，如何给单独页面添加背景色：</p>
+<p><a href="https://blog.csdn.net/qq_26982559/article/details/70172184" target="_blank" rel="noopener">解决方法参考这里</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.finish-wrap</span></span><br><span class="line">&#123;</span><br><span class="line"> 	<span class="attribute">background-color</span>:<span class="built_in">rgb</span>(255,255,255);</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">position</span>: fixed;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>如果直接在css中设置body的background-color，会导致其他页面的背景色响应改变，所以不可取；所以需要给此页面单独设置类；</li>
+<li><strong>position: fixed</strong>设置此属性是为了令此页面脱离文档流，因为主页面其实在<code>app.vue</code>中，永远有一个外层的<code>div</code>，必然不能充满整个页面，所以必须脱离文档流；</li>
+</ol>
+<h3 id="3）-写文章"><a href="#3）-写文章" class="headerlink" title="3） 写文章"></a>3） 写文章</h3><p><code>mavonEditor</code></p>
+<p><a href="https://juejin.im/post/5adab398f265da0b9671ca25" target="_blank" rel="noopener">参考</a></p>
+<p>直接全局引入有问题，不知道为什么老报错，于是这里直接作为组件引入，<a href="https://juejin.im/post/5c7b3bedf265da2da4082475" target="_blank" rel="noopener">参考文章</a>；</p>
+<ul>
+<li>上传头像</li>
+</ul>
+<p>头像展示的src设置，获取上传后的图片src；</p>
+<h3 id="4）个人主页"><a href="#4）个人主页" class="headerlink" title="4）个人主页"></a>4）个人主页</h3><h3 id="5）账号设置"><a href="#5）账号设置" class="headerlink" title="5）账号设置"></a>5）账号设置</h3><h3 id="6）-后台管理页面"><a href="#6）-后台管理页面" class="headerlink" title="6） 后台管理页面"></a>6） 后台管理页面</h3><ul>
+<li>发表文章统计页面：引入echarts，<code>npm install echarts --save</code>；</li>
+</ul>
+<h3 id="7）消息页面"><a href="#7）消息页面" class="headerlink" title="7）消息页面"></a>7）消息页面</h3><p>cell的点击事件不设置为<code>click.native</code>就不生效；</p>
+<h3 id="8）-搜索页面"><a href="#8）-搜索页面" class="headerlink" title="8） 搜索页面"></a>8） 搜索页面</h3><p>关于session；</p>
+<h2 id="4-后端开发部分"><a href="#4-后端开发部分" class="headerlink" title="4 后端开发部分"></a>4 后端开发部分</h2><p>npm: <code>mongoose</code> <code>cookie-parser</code></p>
+<h3 id="关于express"><a href="#关于express" class="headerlink" title="关于express"></a>关于express</h3><ul>
+<li>路由功能；</li>
+<li>集成了很多模板引擎；</li>
+</ul>
+<h3 id="登录注册"><a href="#登录注册" class="headerlink" title="登录注册"></a>登录注册</h3><p>考虑到表单有检测事件，不适合做回车触发，所以删除了这个功能；</p>
+<p>这样会导致还没触发rule就直接给后端发送http请求；</p>
+<p>TODO： 第三方账号登录；</p>
+<h3 id="mongoose"><a href="#mongoose" class="headerlink" title="mongoose"></a>mongoose</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 连接数据库</span></span><br><span class="line">mongoose.connect(<span class="string">'mongodb://localhost:27017/blog'</span>, &#123; <span class="attr">useNewUrlParser</span>: <span class="literal">true</span>&#125;)</span><br></pre></td></tr></table></figure>
+<p>连接数据库时，如果不加第二个参数，会报错；</p>
+<p>对于mongodb来说，不用担心数据库是否存在，会自动创建；</p>
+<p>异步查询必须使用<code>sync await</code>，非异步无法返回对应数据；【当然其实我觉得可以不异步？？？用可视化看看就知道了；</p>
+<p>可视化工具：<a href="https://github.com/swimmingwhale/living-mongo" target="_blank" rel="noopener">living-mongo</a></p>
+<h3 id="用户名唯一"><a href="#用户名唯一" class="headerlink" title="用户名唯一"></a>用户名唯一</h3><p><code>unique: true</code></p>
+<p>必须在连接里加上<code>useCreateIndex: true,</code>否则终端控制台报错；</p>
+<h4 id="加密"><a href="#加密" class="headerlink" title="加密"></a>加密</h4><p>依赖： <code>bcrypt</code></p>
+<h2 id="功能补全-2019-5-13-我可以！！！！"><a href="#功能补全-2019-5-13-我可以！！！！" class="headerlink" title="功能补全 2019-5-13 我可以！！！！"></a>功能补全 2019-5-13 我可以！！！！</h2><h3 id="1）注册"><a href="#1）注册" class="headerlink" title="1）注册"></a>1）注册</h3><p>注册成功也需要注入vuex跳转；</p>
+<h3 id="2）登录"><a href="#2）登录" class="headerlink" title="2）登录"></a>2）登录</h3><p>关于如何使用vuex记录登录状态；</p>
+<p>安装<code>vuex</code>：<code>cnpm install vuex --save</code></p>
+<p>在<code>main.js</code>文件中引入vuex；</p>
+<p><a href="https://baijiahao.baidu.com/s?id=1618794879569468435&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">如何使用vuex保存用户状态</a></p>
+<p><a href="https://blog.csdn.net/weixin_42406046/article/details/80624932" target="_blank" rel="noopener">第二个参考教程</a></p>
+<p><a href="https://blog.csdn.net/qq_39009348/article/details/82114058" target="_blank" rel="noopener">登录拦截</a></p>
+<blockquote>
+<p>TODO：</p>
+<p><a href="https://blog.csdn.net/qq_39009348/article/details/82114058" target="_blank" rel="noopener">http拦截</a></p>
+<p>发现需要header接口，用来获取头像和昵称；</p>
+</blockquote>
+<h3 id="3）注销"><a href="#3）注销" class="headerlink" title="3）注销"></a>3）注销</h3><p>给退出登录加上<code>handleLogout</code>的click事件；</p>
+<p>函数内容：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">handleLogout () &#123;</span><br><span class="line">      <span class="keyword">this</span>.$store.commit(<span class="string">'LOGOUT'</span>, <span class="string">''</span>)</span><br><span class="line">      <span class="keyword">this</span>.$router.push(&#123;<span class="attr">path</span>: <span class="string">'/login'</span>&#125;)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4）添加文章功能"><a href="#4）添加文章功能" class="headerlink" title="4）添加文章功能"></a>4）添加文章功能</h3><h4 id="提交文章"><a href="#提交文章" class="headerlink" title="提交文章"></a>提交文章</h4><p>文章标题：必填；</p>
+<p>时间：自动补充；</p>
+<p>内容/标签：可为空；</p>
+<h4 id="取消"><a href="#取消" class="headerlink" title="取消"></a>取消</h4><p>返回上一页。</p>
+<h3 id="关于编辑文章"><a href="#关于编辑文章" class="headerlink" title="关于编辑文章"></a>关于编辑文章</h3><p>需要使用路由传参<a href="https://www.cnblogs.com/goloving/p/8710168.html" target="_blank" rel="noopener">这里是教程</a></p>
+<h3 id="5）搜索功能"><a href="#5）搜索功能" class="headerlink" title="5）搜索功能"></a>5）搜索功能</h3><blockquote>
+<p>TODO： 多个关键词，有问题；异步问题暂时没有解决；</p>
+<p>点击跳转也还没做；</p>
+</blockquote>
+<h3 id="6）文章管理"><a href="#6）文章管理" class="headerlink" title="6）文章管理"></a>6）文章管理</h3><blockquote>
+<p>TODO: 多选删除、分页、筛选</p>
+</blockquote>
+<p>编辑文章和删除文章搞定了；</p>
+<h3 id="7）账号管理"><a href="#7）账号管理" class="headerlink" title="7）账号管理"></a>7）账号管理</h3><blockquote>
+<p>TODO：菜单栏显示昵称、上传头像</p>
+</blockquote>
+<h3 id="8）标签管理"><a href="#8）标签管理" class="headerlink" title="8）标签管理"></a>8）标签管理</h3><blockquote>
+<p>TODO： 多选删除</p>
+</blockquote>
+<h3 id="9）文章阅读页"><a href="#9）文章阅读页" class="headerlink" title="9）文章阅读页"></a>9）文章阅读页</h3><p>搞定啦；没有todo</p>
+<h3 id="10）评论管理"><a href="#10）评论管理" class="headerlink" title="10）评论管理"></a>10）评论管理</h3><p>参考：</p>
 <p><a href="https://www.cnblogs.com/chengduxiaoc/p/7718768.html" target="_blank" rel="noopener">打通前后端全栈开发node+vue进阶【课程学习系统项目实战详细讲解】(1)：创建项目，完成登录功能</a></p>
 <p><a href="https://blog.csdn.net/TyrionJ/article/details/81990048" target="_blank" rel="noopener">express做登录验证获取req.body为空对象问题</a></p>
 
@@ -490,9 +560,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/web/" rel="tag"><i class="fa fa-tag"></i> web</a>
-          
             <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
+          
+            <a href="/tags/web/" rel="tag"><i class="fa fa-tag"></i> web</a>
           
             <a href="/tags/node/" rel="tag"><i class="fa fa-tag"></i> node</a>
           
@@ -516,6 +586,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/20/2019-11-20-outlook中的html模板/" rel="prev" title="outlook中的html模板">
+                outlook中的html模板 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -599,7 +673,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -612,7 +686,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -668,7 +742,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-准备工作-创建项目"><span class="nav-number">1.</span> <span class="nav-text">1 准备工作/创建项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#后端"><span class="nav-number">1.1.</span> <span class="nav-text">后端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端"><span class="nav-number">1.2.</span> <span class="nav-text">前端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-开始进行前后端接口测试"><span class="nav-number">2.</span> <span class="nav-text">2 开始进行前后端接口测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端页面表单构建"><span class="nav-number">2.1.</span> <span class="nav-text">前端页面表单构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax请求"><span class="nav-number">2.2.</span> <span class="nav-text">ajax请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-引入axios并配置基础路径："><span class="nav-number">2.2.1.</span> <span class="nav-text">1 引入axios并配置基础路径：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-在Login-vue中写登录的具体方法"><span class="nav-number">2.2.2.</span> <span class="nav-text">2 在Login.vue中写登录的具体方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后端接口"><span class="nav-number">2.3.</span> <span class="nav-text">后端接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-实现前端开发部分"><span class="nav-number">3.</span> <span class="nav-text">3 实现前端开发部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0）设置路由"><span class="nav-number">3.1.</span> <span class="nav-text">0）设置路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1）主页"><span class="nav-number">3.2.</span> <span class="nav-text">1）主页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2）后台管理页"><span class="nav-number">3.3.</span> <span class="nav-text">2）后台管理页</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-准备工作-创建项目"><span class="nav-number">1.</span> <span class="nav-text">1 准备工作/创建项目</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#后端"><span class="nav-number">1.1.</span> <span class="nav-text">后端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#前端"><span class="nav-number">1.2.</span> <span class="nav-text">前端</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-开始进行前后端接口测试"><span class="nav-number">2.</span> <span class="nav-text">2 开始进行前后端接口测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端页面表单构建"><span class="nav-number">2.1.</span> <span class="nav-text">前端页面表单构建</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ajax请求"><span class="nav-number">2.2.</span> <span class="nav-text">ajax请求</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-引入axios并配置基础路径："><span class="nav-number">2.2.1.</span> <span class="nav-text">1 引入axios并配置基础路径：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-在Login-vue中写登录的具体方法"><span class="nav-number">2.2.2.</span> <span class="nav-text">2 在Login.vue中写登录的具体方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后端接口"><span class="nav-number">2.3.</span> <span class="nav-text">后端接口</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-实现前端开发部分"><span class="nav-number">3.</span> <span class="nav-text">3 实现前端开发部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0）设置路由"><span class="nav-number">3.1.</span> <span class="nav-text">0）设置路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1）主页"><span class="nav-number">3.2.</span> <span class="nav-text">1）主页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2）登录、注册"><span class="nav-number">3.3.</span> <span class="nav-text">2）登录、注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3）-写文章"><span class="nav-number">3.4.</span> <span class="nav-text">3） 写文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4）个人主页"><span class="nav-number">3.5.</span> <span class="nav-text">4）个人主页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5）账号设置"><span class="nav-number">3.6.</span> <span class="nav-text">5）账号设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6）-后台管理页面"><span class="nav-number">3.7.</span> <span class="nav-text">6） 后台管理页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7）消息页面"><span class="nav-number">3.8.</span> <span class="nav-text">7）消息页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8）-搜索页面"><span class="nav-number">3.9.</span> <span class="nav-text">8） 搜索页面</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-后端开发部分"><span class="nav-number">4.</span> <span class="nav-text">4 后端开发部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于express"><span class="nav-number">4.1.</span> <span class="nav-text">关于express</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#登录注册"><span class="nav-number">4.2.</span> <span class="nav-text">登录注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mongoose"><span class="nav-number">4.3.</span> <span class="nav-text">mongoose</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户名唯一"><span class="nav-number">4.4.</span> <span class="nav-text">用户名唯一</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#加密"><span class="nav-number">4.4.1.</span> <span class="nav-text">加密</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#功能补全-2019-5-13-我可以！！！！"><span class="nav-number">5.</span> <span class="nav-text">功能补全 2019-5-13 我可以！！！！</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1）注册"><span class="nav-number">5.1.</span> <span class="nav-text">1）注册</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2）登录"><span class="nav-number">5.2.</span> <span class="nav-text">2）登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3）注销"><span class="nav-number">5.3.</span> <span class="nav-text">3）注销</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4）添加文章功能"><span class="nav-number">5.4.</span> <span class="nav-text">4）添加文章功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#提交文章"><span class="nav-number">5.4.1.</span> <span class="nav-text">提交文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#取消"><span class="nav-number">5.4.2.</span> <span class="nav-text">取消</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于编辑文章"><span class="nav-number">5.5.</span> <span class="nav-text">关于编辑文章</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5）搜索功能"><span class="nav-number">5.6.</span> <span class="nav-text">5）搜索功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6）文章管理"><span class="nav-number">5.7.</span> <span class="nav-text">6）文章管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7）账号管理"><span class="nav-number">5.8.</span> <span class="nav-text">7）账号管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8）标签管理"><span class="nav-number">5.9.</span> <span class="nav-text">8）标签管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9）文章阅读页"><span class="nav-number">5.10.</span> <span class="nav-text">9）文章阅读页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10）评论管理"><span class="nav-number">5.11.</span> <span class="nav-text">10）评论管理</span></a></li></ol></li></ol></div>
             
 
           </div>
