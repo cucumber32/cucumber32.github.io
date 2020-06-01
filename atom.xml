@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-21T15:21:24.849Z</updated>
+  <updated>2020-06-01T14:12:23.822Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,21 +17,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>认识一下UWP与PWA</title>
+    <link href="http://yoursite.com/2020/06/01/2020-06-01-uwp%E4%B8%8Epwa/"/>
+    <id>http://yoursite.com/2020/06/01/2020-06-01-uwp与pwa/</id>
+    <published>2020-05-31T16:00:00.000Z</published>
+    <updated>2020-06-01T14:12:23.822Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1-这俩是啥"><a href="#1-这俩是啥" class="headerlink" title="1 这俩是啥"></a>1 这俩是啥</h3><p><strong>UWP</strong>其实就是Universal Windows Platform，这是一个平台。而UWP应用是指可以在所有windows10的设备（包括PC、Xbox、Surface或者windows系统的手机）上运行的应用。虽然现在windows手机基本……:）不过听说微软已经放弃它了，好奇究竟是为啥。难道是移动端的问题？</p><a id="more"></a><p>不同平台通用一个软件，UI控件自适应，并且UWP是受到系统操控的，比较安全。</p><p>缺点：操作系统对其限制比较严格，一些功能受限。</p><p>推荐应用：Microsoft To Do、it之家、Newsflow（rss阅读器）</p><p><strong>PWA</strong>全称是Progressive Web App，是在网页应用中实现和原生应用相近的用户体验。所以本质还是网页，只是使用上可以接近原生APP，并且有离线缓存等功能。个人理解，就是将网页应用化。</p><h3 id="2-联想到了其他东西：微信小程序、快应用"><a href="#2-联想到了其他东西：微信小程序、快应用" class="headerlink" title="2 联想到了其他东西：微信小程序、快应用"></a>2 联想到了其他东西：微信小程序、快应用</h3><p><strong>快应用</strong>是只针对固定范围的机型，比如只有某些品牌可用等，无需安装，可以即时使用，UI也偏向原生APP。说实话使用起来确实挺方便的，个人喜欢快应用要超过小程序。</p><p>查了一下百度百科，快应用的开发商是华为、小米、OPPO、vivo、中兴、金立、联想、魅族、努比亚这几个手机品牌，属于小程序类型。也就是说，其他手机品牌目前是不支持快应用这个服务的，比如三星等国外品牌或是国内的小众品牌（一加？）。</p><p>快应用和微信小程序应该算是竞争对手的关系。</p><p><strong>微信小程序</strong>，这个比较熟悉了，其实是基于微信的内置浏览器开发的。所以小程序，不只是微信，包括支付宝等各个软件的小程序都需要基于软件本身。不过小程序和网页本身有一些区别，查了一下它们的js运行环境不一致，更深没挖掘，打算有兴趣的时候仔细研究下。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;1-这俩是啥&quot;&gt;&lt;a href=&quot;#1-这俩是啥&quot; class=&quot;headerlink&quot; title=&quot;1 这俩是啥&quot;&gt;&lt;/a&gt;1 这俩是啥&lt;/h3&gt;&lt;p&gt;&lt;strong&gt;UWP&lt;/strong&gt;其实就是Universal Windows Platform，这是一个平台。而UWP应用是指可以在所有windows10的设备（包括PC、Xbox、Surface或者windows系统的手机）上运行的应用。虽然现在windows手机基本……:）不过听说微软已经放弃它了，好奇究竟是为啥。难道是移动端的问题？&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="UWP" scheme="http://yoursite.com/tags/UWP/"/>
+    
+      <category term="PWA" scheme="http://yoursite.com/tags/PWA/"/>
+    
+      <category term="windows" scheme="http://yoursite.com/tags/windows/"/>
+    
+  </entry>
+  
+  <entry>
     <title>outlook中的html模板</title>
     <link href="http://yoursite.com/2019/11/20/2019-11-20-outlook%E4%B8%AD%E7%9A%84html%E6%A8%A1%E6%9D%BF/"/>
     <id>http://yoursite.com/2019/11/20/2019-11-20-outlook中的html模板/</id>
     <published>2019-11-19T16:00:00.000Z</published>
-    <updated>2019-11-21T15:21:24.849Z</updated>
+    <updated>2020-06-01T14:12:31.286Z</updated>
     
-    <content type="html"><![CDATA[<p>虽然outlook的兼容令人难过，不过开心的是，只要你搞定了它，其他邮件也基本不会有太大问题；</p><h2 id="关于outlook的兼容性须知"><a href="#关于outlook的兼容性须知" class="headerlink" title="关于outlook的兼容性须知"></a>关于outlook的兼容性须知</h2><p>outlook使用的是word的HTML渲染引擎，基本上只支持HTML2。</p><p>所以此时，</p><ol><li><p>放弃js，放弃H5，放弃CSS3。</p></li><li><p>放弃掉<code>DOCTYPE</code>,<code>html</code>,<code>head</code>,<code>body</code>标签，直接从body的内部开始写；因为outlook渲染时可能会把这些标签都删除掉；</p></li><li>放弃<code>div+css</code>布局，推荐使用<code>table</code>布局;</li><li>使用内联样式；</li><li>能使用属性就不要使用样式；</li></ol><h2 id="一些实现上的提示"><a href="#一些实现上的提示" class="headerlink" title="一些实现上的提示"></a>一些实现上的提示</h2><h3 id="1-布局：table"><a href="#1-布局：table" class="headerlink" title="1 布局：table"></a>1 布局：table</h3><p>根据查到的资料，和伟大的实践真理，只有table布局最稳妥。其他布局都会由于解析原因出现一些这样那样的问题；</p><p>对于表格来说，需要注意的样式or属性如下:</p><ol><li><p>边框，默认设置border，表格内边框和外边框之间会有缝隙，所以一般都要使用<code>style=&quot;border-collapse: collapse;&quot;</code>令边框合并；</p><ul><li>对于表格的边框样式，一定要每个单元格都设置才能全部生效；</li><li>如果需要设置整个表格的外边框样式，要把表格的<code>border</code>属性设为0，否则样式会被表格默认黑色边框覆盖，无法显示；</li></ul></li><li><p>边距：</p><ul><li>对于outlook来说table的padding属性和cellpadding是一个效果；不过不推荐使用padding，最好使用表格属性；</li><li>cellspacing一般设置为0，基本和普通html一致；</li></ul></li><li><p>宽度，表格布局，记得加上这行：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">"width: 100%"</span>&gt;</span><span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure><p>防止手机上显示全挤在一个单元格里；</p></li></ol><h3 id="2-图片"><a href="#2-图片" class="headerlink" title="2 图片"></a>2 图片</h3><ul><li><p>大小的设置：</p><p>在outlook中，用style来设置宽高是无效的；需要直接使用<code>width=&quot;10&quot; height=&quot;10&quot;</code>属性来设置，不需要写单位；</p><p>值得一提的是，如果图片使用的不是路径，而是base64，那么宽高设置即使是属性也无效；</p></li><li><p>outlook显示不支持透明背景的显示，会直接变成白色背景；</p></li></ul><p>所以，总结一下，对于outlook，很多时候需要在图片本身进行一些处理，因为很多样式会无效；</p><h2 id="如何预览你的html邮件模板"><a href="#如何预览你的html邮件模板" class="headerlink" title="如何预览你的html邮件模板"></a>如何预览你的html邮件模板</h2><ol><li>用编辑器写好一个html页面；</li><li>用IE打开你的页面；【推荐IE，其他浏览器也可以；推荐IE，预览效果和outlook比较接近；</li><li>复制整个页面，对，是渲染后的页面；</li><li>打开outlook，新建邮件，粘贴进去。这就是你的模板在outlook邮件里的样子了；</li></ol><p>参考：</p><p><a href="http://ju.outofmemory.cn/entry/92176" target="_blank" rel="noopener">怎样写出兼容Outlook2010的HTML邮件</a></p><p><a href="https://segmentfault.com/a/1190000008864116#articleHeader5" target="_blank" rel="noopener">HTML邮件兼容问题与解决方案</a></p>]]></content>
+    <content type="html"><![CDATA[<p>虽然outlook的兼容令人难过，不过开心的是，只要你搞定了它，其他邮件也基本不会有太大问题；</p><a id="more"></a><h2 id="关于outlook的兼容性须知"><a href="#关于outlook的兼容性须知" class="headerlink" title="关于outlook的兼容性须知"></a>关于outlook的兼容性须知</h2><p>outlook使用的是word的HTML渲染引擎，基本上只支持HTML2。</p><p>所以此时，</p><ol><li><p>放弃js，放弃H5，放弃CSS3。</p></li><li><p>放弃掉<code>DOCTYPE</code>,<code>html</code>,<code>head</code>,<code>body</code>标签，直接从body的内部开始写；因为outlook渲染时可能会把这些标签都删除掉；</p></li><li>放弃<code>div+css</code>布局，推荐使用<code>table</code>布局;</li><li>使用内联样式；</li><li>能使用属性就不要使用样式；</li></ol><h2 id="一些实现上的提示"><a href="#一些实现上的提示" class="headerlink" title="一些实现上的提示"></a>一些实现上的提示</h2><h3 id="1-布局：table"><a href="#1-布局：table" class="headerlink" title="1 布局：table"></a>1 布局：table</h3><p>根据查到的资料，和伟大的实践真理，只有table布局最稳妥。其他布局都会由于解析原因出现一些这样那样的问题；</p><p>对于表格来说，需要注意的样式or属性如下:</p><ol><li><p>边框，默认设置border，表格内边框和外边框之间会有缝隙，所以一般都要使用<code>style=&quot;border-collapse: collapse;&quot;</code>令边框合并；</p><ul><li>对于表格的边框样式，一定要每个单元格都设置才能全部生效；</li><li>如果需要设置整个表格的外边框样式，要把表格的<code>border</code>属性设为0，否则样式会被表格默认黑色边框覆盖，无法显示；</li></ul></li><li><p>边距：</p><ul><li>对于outlook来说table的padding属性和cellpadding是一个效果；不过不推荐使用padding，最好使用表格属性；</li><li>cellspacing一般设置为0，基本和普通html一致；</li></ul></li><li><p>宽度，表格布局，记得加上这行：</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">tr</span>&gt;</span><span class="tag">&lt;<span class="name">th</span> <span class="attr">style</span>=<span class="string">"width: 100%"</span>&gt;</span><span class="tag">&lt;/<span class="name">th</span>&gt;</span><span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br></pre></td></tr></table></figure><p>防止手机上显示全挤在一个单元格里；</p></li></ol><h3 id="2-图片"><a href="#2-图片" class="headerlink" title="2 图片"></a>2 图片</h3><ul><li><p>大小的设置：</p><p>在outlook中，用style来设置宽高是无效的；需要直接使用<code>width=&quot;10&quot; height=&quot;10&quot;</code>属性来设置，不需要写单位；</p><p>值得一提的是，如果图片使用的不是路径，而是base64，那么宽高设置即使是属性也无效；</p></li><li><p>outlook显示不支持透明背景的显示，会直接变成白色背景；</p></li></ul><p>所以，总结一下，对于outlook，很多时候需要在图片本身进行一些处理，因为很多样式会无效；</p><h2 id="如何预览你的html邮件模板"><a href="#如何预览你的html邮件模板" class="headerlink" title="如何预览你的html邮件模板"></a>如何预览你的html邮件模板</h2><ol><li>用编辑器写好一个html页面；</li><li>用IE打开你的页面；【推荐IE，其他浏览器也可以；推荐IE，预览效果和outlook比较接近；</li><li>复制整个页面，对，是渲染后的页面；</li><li>打开outlook，新建邮件，粘贴进去。这就是你的模板在outlook邮件里的样子了；</li></ol><p>参考：</p><p><a href="http://ju.outofmemory.cn/entry/92176" target="_blank" rel="noopener">怎样写出兼容Outlook2010的HTML邮件</a></p><p><a href="https://segmentfault.com/a/1190000008864116#articleHeader5" target="_blank" rel="noopener">HTML邮件兼容问题与解决方案</a></p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;虽然outlook的兼容令人难过，不过开心的是，只要你搞定了它，其他邮件也基本不会有太大问题；&lt;/p&gt;
-&lt;h2 id=&quot;关于outlook的兼容性须知&quot;&gt;&lt;a href=&quot;#关于outlook的兼容性须知&quot; class=&quot;headerlink&quot; title=&quot;关于outlo
-      
+      &lt;p&gt;虽然outlook的兼容令人难过，不过开心的是，只要你搞定了它，其他邮件也基本不会有太大问题；&lt;/p&gt;
     
     </summary>
     
@@ -58,9 +78,9 @@
     </summary>
     
     
-      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
-    
       <category term="web" scheme="http://yoursite.com/tags/web/"/>
+    
+      <category term="vue" scheme="http://yoursite.com/tags/vue/"/>
     
       <category term="node" scheme="http://yoursite.com/tags/node/"/>
     
